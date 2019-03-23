@@ -3,10 +3,13 @@
   "version": "1.0.0",
   "description": "A utility to add some spice to your Tweets",
   "main": "index.js",
+  "engines": {
+	"node": ">=9"
+  },
   "scripts": {
     "lint": "tslint --format stylish --project .",
     "build": "del dist && tsc",
-    "test": "npm run lint && npm run build && ava dist/test/test.js"
+    "test": "npm run lint && npm run build && npx ava dist/test"
   },
   "repository": {
     "type": "git",
