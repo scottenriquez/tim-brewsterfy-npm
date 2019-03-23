@@ -1,7 +1,7 @@
 import {analyzeSentimentWithBrewsterisms} from '../index';
 import test, {TestContext} from 'ava';
 
-test('brewsterisms override sentiment', (t: TestContext) => {
+test('should override standard sentiment values for brewsterisms', (t: TestContext) => {
 	// Arrange
 	const input = 'ballers lit TheStation';
 	const expectedScore = 200;
@@ -13,7 +13,7 @@ test('brewsterisms override sentiment', (t: TestContext) => {
 	t.true(expectedScore === actualScore);
 });
 
-test('brewsterisms override sentiment with additional hashtags', (t: TestContext) => {
+test('should override standard sentiment values for brewsterisms with hashtags', (t: TestContext) => {
 	// Arrange
 	const input = 'ballers lit #TheStation #Facts';
 	const expectedScore = 230;

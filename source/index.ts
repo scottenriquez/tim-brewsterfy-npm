@@ -22,6 +22,11 @@ export function analyzeSentimentWithBrewsterisms(text: string): number {
 	return sentiment.analyze(text, options).score;
 }
 
+export function appendFlameEmojis(sentimentScore: number, text: string): string {
+	const litnessFactor = sentimentScore / 100;
+	return text + '🔥'.repeat(litnessFactor);
+}
+
 export function replaceSinglePeriodsWithExclamationMarks(text: string): string {
 	// tslint:disable-next-line
 	return text.replace(new RegExp('(?<!\\.)\\.(?!\\.)', 'g'), '!!');

@@ -1,7 +1,7 @@
 import test, {TestContext} from 'ava';
 import {brewsterfy} from '../index';
 
-test('brewsterfy adds emojis', (t: TestContext) => {
+test('should add brewsterfy emojis', (t: TestContext) => {
 	// Arrange
 	const input = '#TheStation is lit';
 	const expectedOutput = '#TheStation is lit‼️';
