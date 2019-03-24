@@ -5,20 +5,25 @@ import {BrewsterfyResponse} from './brewsterfy-response';
 export function brewsterfy(text: string): BrewsterfyResponse {
 	const sentimentScore = analyzeSentimentWithBrewsterisms(text);
 	const canBrewsterfy = canBrewsterfyBasedOnSentiment(sentimentScore);
-	return new BrewsterfyResponse(canBrewsterfy, text, sentimentScore, undefined);
+	let brewsterfiedText;
+	if (canBrewsterfy) {
+		brewsterfiedText = appendFlameEmojis(sentimentScore, text);
+		brewsterfiedText = replaceSinglePeriodsWithExclamationMarks(brewsterfiedText);
+	}
+	return new BrewsterfyResponse(canBrewsterfy, text, sentimentScore, brewsterfiedText);
 }
 
 export function analyzeSentimentWithBrewsterisms(text: string): number {
 	const sentiment = new Sentiment();
 	const options = {
 		extras: {
-			happening: 20,
-			facts: 30,
-			lit: 50,
-			ballers: 50,
-			ballerseverywhere: 60,
-			championships: 70,
-			thestation: 100
+			happening: 2,
+			facts: 3,
+			championships: 3,
+			lit: 5,
+			ballers: 5,
+			ballerseverywhere: 5,
+			thestation: 10
 		},
 		language: 'en'
 	};
@@ -26,11 +31,11 @@ export function analyzeSentimentWithBrewsterisms(text: string): number {
 }
 
 export function canBrewsterfyBasedOnSentiment(sentimentScore: number): boolean {
-	return sentimentScore > 20;
+	return sentimentScore >= 10;
 }
 
 export function appendFlameEmojis(sentimentScore: number, text: string): string {
-	const litnessFactor = sentimentScore / 100;
+	const litnessFactor = sentimentScore / 10;
 	return text + '🔥'.repeat(litnessFactor);
 }
 

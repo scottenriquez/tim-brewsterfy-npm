@@ -1,4 +1,4 @@
-declare module 'sentiment' {
+module 'sentiment' {
 
 	interface ConstructorOptions {
 

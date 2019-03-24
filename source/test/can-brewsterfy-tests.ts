@@ -3,7 +3,7 @@ import {canBrewsterfyBasedOnSentiment} from '../index';
 
 test('should return true for high enough sentiment', (t: TestContext) => {
 	// Arrange
-	const input = 30;
+	const input = 10;
 	const expectedOutput = true;
 
 	// Act
@@ -15,7 +15,7 @@ test('should return true for high enough sentiment', (t: TestContext) => {
 
 test('should return false for a sentiment too low', (t: TestContext) => {
 	// Arrange
-	const input = 20;
+	const input = 9;
 	const expectedOutput = false;
 
 	// Act

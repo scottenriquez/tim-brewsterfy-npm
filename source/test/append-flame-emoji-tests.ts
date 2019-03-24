@@ -4,7 +4,7 @@ import {appendFlameEmojis} from '../index';
 test('should append flame emojis for whole number', (t: TestContext) => {
 	// Arrange
 	const text = 'lit';
-	const sentimentScore = 300;
+	const sentimentScore = 30;
 	const expectedOutput = 'lit🔥🔥🔥';
 
 	// Act
@@ -17,7 +17,7 @@ test('should append flame emojis for whole number', (t: TestContext) => {
 test('should truncate litness factor and append flame emojis for number with decimal', (t: TestContext) => {
 	// Arrange
 	const text = 'lit';
-	const sentimentScore = 364;
+	const sentimentScore = 39;
 	const expectedOutput = 'lit🔥🔥🔥';
 
 	// Act
