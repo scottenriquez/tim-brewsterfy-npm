@@ -1,14 +1,15 @@
+import {BrewsterfyResponse} from '../brewsterfy-response';
 import test, {TestContext} from 'ava';
 import {brewsterfy} from '../index';
 
-test('should add brewsterfy emojis', (t: TestContext) => {
+test('should not brewsterfy with low sentiment', (t: TestContext) => {
 	// Arrange
-	const input = '#TheStation is lit';
-	const expectedOutput = '#TheStation is lit‼️';
+	const input = 'this is boring';
+	const expectedOutput = new BrewsterfyResponse(false, 'this is boring', -3, undefined);
 
 	// Act
 	const actualOutput = brewsterfy(input);
 
 	// Assert
-	t.true(expectedOutput === actualOutput);
+	t.true(expectedOutput.equals(actualOutput));
 });

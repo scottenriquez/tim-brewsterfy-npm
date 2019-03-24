@@ -1,8 +1,11 @@
 // tslint:disable-next-line
 import Sentiment = require('sentiment');
+import {BrewsterfyResponse} from './brewsterfy-response';
 
-export function brewsterfy(text: string): string {
-	return text + '‼️';
+export function brewsterfy(text: string): BrewsterfyResponse {
+	const sentimentScore = analyzeSentimentWithBrewsterisms(text);
+	const canBrewsterfy = canBrewsterfyBasedOnSentiment(sentimentScore);
+	return new BrewsterfyResponse(canBrewsterfy, text, sentimentScore, undefined);
 }
 
 export function analyzeSentimentWithBrewsterisms(text: string): number {
@@ -20,6 +23,10 @@ export function analyzeSentimentWithBrewsterisms(text: string): number {
 		language: 'en'
 	};
 	return sentiment.analyze(text, options).score;
+}
+
+export function canBrewsterfyBasedOnSentiment(sentimentScore: number): boolean {
+	return sentimentScore > 20;
 }
 
 export function appendFlameEmojis(sentimentScore: number, text: string): string {
