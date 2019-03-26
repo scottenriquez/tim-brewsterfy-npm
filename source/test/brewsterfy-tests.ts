@@ -17,7 +17,7 @@ test('should not brewsterfy with low sentiment', (t: TestContext) => {
 test('should brewsterfy for acceptable sentiment', (t: TestContext) => {
 	// Arrange
 	const input = '#TheStation... is lit.';
-	const expectedOutput = new BrewsterfyResponse(true, '#TheStation... is lit.', 15, '#TheStation... is lit!!🔥');
+	const expectedOutput = new BrewsterfyResponse(true, '#TheStation... is lit.', 15, '#TheStation... is lit‼️🔥');
 
 	// Act
 	const actualOutput = brewsterfy(input);
@@ -29,7 +29,7 @@ test('should brewsterfy for acceptable sentiment', (t: TestContext) => {
 test('should brewsterfy for acceptable sentiment without brewsterisms', (t: TestContext) => {
 	// Arrange
 	const input = 'Today was awesome. Best day of my life...I love everything.';
-	const expectedOutput = new BrewsterfyResponse(true, 'Today was awesome. Best day of my life...I love everything.', 10, 'Today was awesome!! Best day of my life...I love everything!!🔥');
+	const expectedOutput = new BrewsterfyResponse(true, 'Today was awesome. Best day of my life...I love everything.', 10, 'Today was awesome‼️ Best day of my life...I love everything‼️🔥');
 
 	// Act
 	const actualOutput = brewsterfy(input);

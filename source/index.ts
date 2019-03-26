@@ -41,5 +41,5 @@ export function appendFlameEmojis(sentimentScore: number, text: string): string 
 
 export function replaceSinglePeriodsWithExclamationMarks(text: string): string {
 	// tslint:disable-next-line
-	return text.replace(new RegExp('(?<!\\.)\\.(?!\\.)', 'g'), '!!');
+	return text.replace(new RegExp('(?<!\\.)\\.(?!\\.)', 'g'), '‼️');
 }
